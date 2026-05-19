@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  {{ block "head" . }}{{ end }}
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="{{ "/" | relURL }}" class="logo">
+        <span class="logo-icon">📖</span>
+        <span class="logo-text">{{ .Site.Title }}</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="主导航">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>{{ .Site.Params.description }}</p>
+      <p class="footer-meta">
+        内容采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="license">CC BY 4.0</a> 许可 ·
+        <a href="{{ "/contributing/" | relURL }}">参与贡献</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ "js/main.js" | relURL }}" defer></script>
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

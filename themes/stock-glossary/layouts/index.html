@@ -1,0 +1,57 @@
+{{ define "main" }}
+<section class="hero">
+  <h1>{{ .Site.Title }}</h1>
+  <p class="hero-sub">{{ .Site.Params.description }}</p>
+  <div class="search-hero">
+    <label for="search-input" class="sr-only">搜索概念</label>
+    <input type="search" id="search-input" placeholder="搜索概念，如 MACD、市盈率、换手率…" autocomplete="off">
+    <div id="search-results" class="search-results" hidden></div>
+  </div>
+</section>
+
+<section class="categories-grid">
+  <h2 class="section-title">按分类浏览</h2>
+  <div class="grid">
+    {{ range where .Site.Sections "Section" "ne" "contributing" }}
+    <a href="{{ .RelPermalink }}" class="category-card">
+      <span class="category-icon">{{ .Params.icon | default "📚" }}</span>
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Params.summary | default .Description }}</p>
+      <span class="category-count">{{ len .RegularPages }} 个概念</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+{{ $recent := where .Site.RegularPages "Section" "ne" "contributing" }}
+{{ $recent = $recent | first 8 }}
+{{ if $recent }}
+<section class="recent-section">
+  <h2 class="section-title">最近更新</h2>
+  <ul class="concept-list">
+    {{ range $recent }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        <span class="concept-title">{{ .Title }}</span>
+        <span class="concept-summary">{{ .Params.one_liner | default .Summary }}</span>
+      </a>
+      <span class="concept-section">{{ with .Parent }}{{ .Title }}{{ end }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<section class="hot-section">
+  <h2 class="section-title">热门概念</h2>
+  <div class="tag-cloud">
+    {{ range where .Site.RegularPages "Params.hot" true }}
+    <a href="{{ .RelPermalink }}" class="tag">{{ .LinkTitle }}</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/search.js" | relURL }}" defer></script>
+{{ end }}

@@ -1,0 +1,62 @@
+baseURL = "https://stock101.cn/"
+languageCode = "zh-cn"
+title = "股典"
+theme = "stock-glossary"
+
+[params]
+  description = "股票术语表 — 让股票概念像查字典一样简单"
+  author = "股典社区"
+  license = "CC BY 4.0"
+  # 自建视频 CDN 根地址（可选）。概念里 src 写相对路径如 /videos/xxx.mp4 时会拼接此前缀
+  # video_cdn = "https://你的桶.oss-cn-xxx.aliyuncs.com"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+    lineNos = false
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "基础交易"
+    url = "/basics/"
+    weight = 2
+  [[menu.main]]
+    name = "技术指标"
+    url = "/indicators/"
+    weight = 3
+  [[menu.main]]
+    name = "基本面"
+    url = "/fundamentals/"
+    weight = 4
+  [[menu.main]]
+    name = "市场结构"
+    url = "/market-structure/"
+    weight = 5
+  [[menu.main]]
+    name = "交易策略"
+    url = "/strategies/"
+    weight = 6
+  [[menu.main]]
+    name = "风险提示"
+    url = "/risk/"
+    weight = 7
+  [[menu.main]]
+    name = "贡献指南"
+    url = "/contributing/"
+    weight = 10

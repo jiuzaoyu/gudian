@@ -1,0 +1,12 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.RegularPages "Section" "ne" "contributing" -}}
+  {{- $.Scratch.Add "index" (dict
+    "title" .Title
+    "url" .RelPermalink
+    "section" .Section
+    "summary" (.Params.one_liner | default .Summary)
+    "content" (.Plain | truncate 500)
+    "tags" (.Params.tags | default slice)
+  ) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

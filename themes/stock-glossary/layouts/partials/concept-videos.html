@@ -1,0 +1,15 @@
+{{- $page := . -}}
+{{- $hasVideos := $page.Params.videos -}}
+{{- $hasSingle := $page.Params.video -}}
+{{- if not (or $hasVideos $hasSingle) }}{{ return }}{{ end -}}
+
+<section class="concept-videos" aria-label="视频讲解">
+  <h2 class="concept-videos-heading">视频讲解</h2>
+  {{- if $hasVideos -}}
+    {{- range $page.Params.videos -}}
+      {{- partial "video-item.html" (dict "video" . "page" $page) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- partial "video-item.html" (dict "video" $page.Params.video "page" $page) -}}
+  {{- end -}}
+</section>

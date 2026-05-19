@@ -1,0 +1,77 @@
+{{ define "main" }}
+<article class="concept-page">
+  <nav class="breadcrumb" aria-label="面包屑">
+    <a href="{{ "/" | relURL }}">首页</a>
+    {{ with .Parent }}
+    <span aria-hidden="true">›</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
+    <span aria-hidden="true">›</span>
+    <span>{{ .Title }}</span>
+  </nav>
+
+  <header class="concept-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.one_liner }}
+    <p class="one-liner">{{ . }}</p>
+    {{ end }}
+    {{ with .Params.tags }}
+    <div class="concept-tags">
+      {{ range . }}
+      <span class="tag-small">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  {{ partial "concept-videos.html" . }}
+
+  <div class="concept-body prose">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.related }}
+  <aside class="related-concepts">
+    <h2>相关概念</h2>
+    <ul>
+      {{ range . }}
+      {{ $slug := . }}
+      {{ $page := false }}
+      {{ range $.Site.RegularPages }}
+        {{ if or (eq .File.BaseFileName $slug) (eq .File.ContentBaseName $slug) }}
+          {{ $page = . }}
+        {{ end }}
+      {{ end }}
+      <li>
+        {{ if $page }}
+        <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+        {{ else }}
+        <span>{{ $slug }}</span>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </aside>
+  {{ end }}
+
+  <nav class="concept-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .RelPermalink }}" class="nav-prev">← {{ .LinkTitle }}</a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .RelPermalink }}" class="nav-next">{{ .LinkTitle }} →</a>
+    {{ end }}
+  </nav>
+
+  <footer class="concept-meta">
+    {{ with .Params.last_updated }}
+    <p>最后更新：{{ . }}</p>
+    {{ else }}
+    <p>最后更新：{{ .Lastmod.Format "2006-01-02" }}</p>
+    {{ end }}
+    {{ with .Params.contributor }}
+    <p>贡献者：{{ . }}</p>
+    {{ end }}
+  </footer>
+</article>
+{{ end }}

@@ -1,0 +1,7 @@
+name = "stock-glossary"
+license = "MIT"
+description = "股典 — 股票术语表主题"
+min_version = "0.120.0"
+
+[author]
+  name = "股典"

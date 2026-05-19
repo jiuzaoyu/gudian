@@ -1,0 +1,91 @@
+{{- $v := .video -}}
+{{- $ctx := .page -}}
+{{- if not $v }}{{ return }}{{ end -}}
+
+{{- $type := $v.type | default "" -}}
+{{- if not $type -}}
+  {{- if or $v.provider $v.url $v.embed_url -}}
+    {{- $type = "embed" -}}
+  {{- else if $v.src -}}
+    {{- $type = "self" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $hasEmbed := or $v.url $v.embed_url (and $v.id $v.provider) -}}
+{{- $src := $v.src | default "" -}}
+{{- if and (not $src) $v.file -}}
+  {{- $src = printf "/videos/%s" $v.file -}}
+{{- end -}}
+{{- if and $src (not (hasPrefix $src "http")) (not (hasPrefix $src "/")) -}}
+  {{- $src = printf "/videos/%s" $src -}}
+{{- end -}}
+{{- $cdn := site.Params.video_cdn | default "" -}}
+{{- if and $src $cdn (not (hasPrefix $src "http")) -}}
+  {{- $src = printf "%s%s" ($cdn | strings.TrimSuffix "/") ($src) -}}
+{{- end -}}
+
+{{- $show := false -}}
+{{- if eq $type "embed" -}}
+  {{- $show = $hasEmbed -}}
+{{- else if eq $type "self" -}}
+  {{- $show = ne $src "" -}}
+{{- else -}}
+  {{- $show = or $hasEmbed (ne $src "") -}}
+{{- end -}}
+{{- if not $show }}{{ return }}{{ end -}}
+
+<figure class="video-item" data-video-type="{{ $type }}">
+  {{- with $v.title -}}<figcaption class="video-item-title">{{ . }}</figcaption>{{- end -}}
+
+  <div class="video-player-wrap">
+    {{- if eq $type "embed" -}}
+      {{- $embedURL := $v.embed_url | default $v.url -}}
+      {{- if not $embedURL -}}
+        {{- $provider := $v.provider | default "bilibili" -}}
+        {{- $id := $v.id -}}
+        {{- if eq $provider "bilibili" -}}
+          {{- $embedURL = printf "https://player.bilibili.com/player.html?bvid=%s&page=1&high_quality=1&autoplay=0" $id -}}
+        {{- else if eq $provider "youtube" -}}
+          {{- $embedURL = printf "https://www.youtube-nocookie.com/embed/%s" $id -}}
+        {{- else if eq $provider "youku" -}}
+          {{- $embedURL = printf "https://player.youku.com/embed/%s" $id -}}
+        {{- else if eq $provider "tencent" -}}
+          {{- $embedURL = printf "https://v.qq.com/txp/iframe/player.html?vid=%s" $id -}}
+        {{- end -}}
+      {{- end -}}
+      <iframe
+        class="video-embed"
+        src="{{ $embedURL }}"
+        title="{{ $v.title | default $ctx.Title }} — 视频讲解"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    {{- else -}}
+      {{- $poster := $v.poster | default "" -}}
+      {{- if and $poster (not (hasPrefix $poster "http")) (not (hasPrefix $poster "/")) -}}
+        {{- $poster = printf "/videos/%s" $poster -}}
+      {{- end -}}
+      {{- if and $poster $cdn (not (hasPrefix $poster "http")) -}}
+        {{- $poster = printf "%s%s" ($cdn | strings.TrimSuffix "/") $poster -}}
+      {{- end -}}
+      <video
+        class="video-self"
+        controls
+        playsinline
+        preload="metadata"
+        {{- with $poster }} poster="{{ if hasPrefix . "http" }}{{ . }}{{ else }}{{ . | relURL }}{{ end }}"{{ end }}
+      >
+        <source src="{{ if hasPrefix $src "http" }}{{ $src }}{{ else }}{{ $src | relURL }}{{ end }}" type="{{ $v.mime | default "video/mp4" }}">
+        您的浏览器不支持视频播放，请<a href="{{ if hasPrefix $src "http" }}{{ $src }}{{ else }}{{ $src | relURL }}{{ end }}">下载视频</a>观看。
+      </video>
+    {{- end -}}
+  </div>
+
+  <div class="video-item-meta">
+    {{- with $v.duration -}}<span class="video-duration">{{ . }}</span>{{- end -}}
+    {{- with $v.source -}}<span class="video-source">{{ . }}</span>{{- end -}}
+    {{- with $v.caption -}}<p class="video-caption">{{ . }}</p>{{- end -}}
+  </div>
+</figure>
