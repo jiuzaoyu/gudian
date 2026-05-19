@@ -11,7 +11,7 @@
 **方式一（推荐，无需全局安装 Hugo）**
 
 ```powershell
-cd stock-glossary
+cd gudian
 .\serve.ps1
 ```
 
@@ -20,34 +20,37 @@ cd stock-glossary
 **方式二：已安装 Hugo 时**
 
 ```bash
-cd stock-glossary
 hugo server -D
 ```
 
 浏览器打开 http://localhost:1313
 
-## 构建与发布
+## 在线站点（GitHub Pages，推荐）
+
+**一步一步教程**：[docs/DEPLOY_GITHUB_PAGES.md](docs/DEPLOY_GITHUB_PAGES.md)
+
+部署成功后访问：**https://jiuzaoyu.github.io/gudian/**
+
+简要步骤：
+
+1. `git push` 到 GitHub 仓库 `jiuzaoyu/gudian`
+2. 仓库 **Settings → Pages → Source** 选 **GitHub Actions**
+3. 在 **Actions** 里等待 **Deploy to GitHub Pages** 完成
+
+## 其他部署方式
 
 ```bash
-hugo --minify --baseURL "https://你的正式域名/"
+hugo --minify --baseURL "https://你的域名/"
 # 输出在 public/ 目录
 ```
 
-### 阿里云生产环境（推荐国内访问）
+### 阿里云（需 ICP 备案，可选）
 
-完整步骤见 **[docs/DEPLOY_ALIYUN.md](docs/DEPLOY_ALIYUN.md)**（OSS + CDN + 域名 + HTTPS）。
-
-快速上传（需先安装 [ossutil](https://help.aliyun.com/document_detail/120075.html) 并 `ossutil config`）：
+见 [docs/DEPLOY_ALIYUN.md](docs/DEPLOY_ALIYUN.md)。快速上传：
 
 ```powershell
 .\scripts\deploy-oss.ps1 -Bucket "你的bucket" -Endpoint "oss-cn-hangzhou.aliyuncs.com" -BaseUrl "https://你的域名/"
 ```
-
-### GitHub Pages
-
-1. 将仓库推送到 GitHub
-2. 已包含 `.github/workflows/deploy.yml`，推送到 `main` 分支会自动部署
-3. 在仓库 Settings → Pages 中选择 **GitHub Actions** 作为来源
 
 ## 视频讲解
 
@@ -66,7 +69,7 @@ hugo new basics/你的概念英文名.md
 ## 目录结构
 
 ```
-stock-glossary/
+gudian/
 ├── content/           # 所有概念（Markdown）
 │   ├── basics/        # 基础交易
 │   ├── indicators/    # 技术指标

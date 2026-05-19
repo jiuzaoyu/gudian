@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="concept-page">
   <nav class="breadcrumb" aria-label="面包屑">
-    <a href="{{ "/" | relURL }}">首页</a>
+    <a href="{{ .Site.Home.RelPermalink }}">首页</a>
     {{ with .Parent }}
     <span aria-hidden="true">›</span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>

@@ -1,4 +1,6 @@
 /public/
+# 本地测试构建输出（hugo -d public-xxx），避免误提交
+/public-*/
 /resources/
 .hugo_build.lock
 /.tools/

@@ -1,4 +1,5 @@
-baseURL = "https://stock101.cn/"
+# GitHub Pages 项目站地址（仓库名须与路径一致）。CI 构建时会自动覆盖，本地预览可改回 http://localhost:1313/
+baseURL = "https://jiuzaoyu.github.io/gudian/"
 languageCode = "zh-cn"
 title = "股典"
 theme = "stock-glossary"

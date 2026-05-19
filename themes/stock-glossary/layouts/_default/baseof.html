@@ -11,7 +11,7 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="{{ "/" | relURL }}" class="logo">
+      <a href="{{ .Site.Home.RelPermalink }}" class="logo">
         <span class="logo-icon">📖</span>
         <span class="logo-text">{{ .Site.Title }}</span>
       </a>
@@ -33,7 +33,7 @@
       <p>{{ .Site.Params.description }}</p>
       <p class="footer-meta">
         内容采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="license">CC BY 4.0</a> 许可 ·
-        <a href="{{ "/contributing/" | relURL }}">参与贡献</a>
+        {{ with site.GetPage "/contributing" }}<a href="{{ .RelPermalink }}">参与贡献</a>{{ end }}
       </p>
     </div>
   </footer>
