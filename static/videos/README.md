@@ -24,7 +24,7 @@ video:
 
 - **单个视频建议 ≤ 20MB**（1–3 分钟、720p、H.264）。
 - GitHub 仓库不适合堆大量视频，上线时建议：
-  1. 上传到对象存储（阿里云 OSS / 腾讯云 COS 等）并开启 CDN；
+  1. 上传到对象存储并开启 CDN；
   2. 在 `hugo.toml` 配置 `params.video_cdn`；
   3. 或将 `src` 直接写完整 HTTPS 地址。
 

@@ -136,10 +136,3 @@ cd d:\workspaces\jiuzaoyu\gudian
 ### 5. 国内访问较慢
 
 GitHub Pages 服务器在海外，属正常现象。开源协作、免备案托管通常可接受；内容仍可在 GitHub 上 PR 贡献。
-
----
-
-## 和阿里云方案的关系
-
-- **GitHub Pages**：推荐作为当前主站，免备案。  
-- **阿里云 OSS/CDN**：见 [DEPLOY_ALIYUN.md](DEPLOY_ALIYUN.md)，需备案，可等以后有需要再上。  

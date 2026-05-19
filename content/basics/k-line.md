@@ -14,7 +14,7 @@ video:
   title: "股典 · 1 分钟看懂 K 线"
   duration: "1:30"
   source: "股典自制"
-  caption: "无合适外链讲解时可自制短片；上线大文件请改用 OSS/CDN（见 static/videos/README.md）"
+  caption: "无合适外链讲解时可自制短片；上线大文件请改用 CDN（见 static/videos/README.md）"
 ---
 
 ## 人话解释

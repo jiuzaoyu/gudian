@@ -19,7 +19,7 @@ type: "docs"
 
 ```bash
 # 安装 Hugo: https://gohugo.io/installation/
-cd stock-glossary
+cd gudian
 hugo server -D
 # 浏览器打开 http://localhost:1313
 ```

@@ -37,19 +37,11 @@ hugo server -D
 2. 仓库 **Settings → Pages → Source** 选 **GitHub Actions**
 3. 在 **Actions** 里等待 **Deploy to GitHub Pages** 完成
 
-## 其他部署方式
+## 本地构建
 
 ```bash
-hugo --minify --baseURL "https://你的域名/"
-# 输出在 public/ 目录
-```
-
-### 阿里云（需 ICP 备案，可选）
-
-见 [docs/DEPLOY_ALIYUN.md](docs/DEPLOY_ALIYUN.md)。快速上传：
-
-```powershell
-.\scripts\deploy-oss.ps1 -Bucket "你的bucket" -Endpoint "oss-cn-hangzhou.aliyuncs.com" -BaseUrl "https://你的域名/"
+hugo --minify
+# 输出在 public/ 目录，可用于自行托管
 ```
 
 ## 视频讲解

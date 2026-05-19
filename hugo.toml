@@ -9,7 +9,7 @@ theme = "stock-glossary"
   author = "股典社区"
   license = "CC BY 4.0"
   # 自建视频 CDN 根地址（可选）。概念里 src 写相对路径如 /videos/xxx.mp4 时会拼接此前缀
-  # video_cdn = "https://你的桶.oss-cn-xxx.aliyuncs.com"
+  # video_cdn = "https://你的视频CDN根地址"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

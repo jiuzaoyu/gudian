@@ -43,7 +43,7 @@ video:
 
 文件放在 `static/videos/...`，详见 [static/videos/README.md](../static/videos/README.md)。
 
-生产环境可将 `src` 改为 OSS/CDN 完整 URL，或在 `hugo.toml` 配置 `params.video_cdn`。
+生产环境可将 `src` 改为 CDN 完整 URL，或在 `hugo.toml` 配置 `params.video_cdn`。
 
 ## 场景三：同一概念多个视频
 
