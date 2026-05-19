@@ -38,11 +38,11 @@ theme = "stock-glossary"
     url = "/basics/"
     weight = 2
   [[menu.main]]
-    name = "技术指标11"
+    name = "技术指标"
     url = "/indicators/"
     weight = 3
   [[menu.main]]
-    name = "基本面22"
+    name = "基本面"
     url = "/fundamentals/"
     weight = 4
   [[menu.main]]
