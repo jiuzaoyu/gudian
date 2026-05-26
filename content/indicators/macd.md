@@ -5,8 +5,12 @@ tags: ["技术指标", "趋势", "买卖点"]
 related: ["ma", "kdj", "rsi"]
 hot: true
 weight: 1
-last_updated: "2026-05-19"
-contributor: "股典"
+last_updated: "2026-05-26"
+video:
+  type: embed
+  provider: bilibili
+  id: "BV12Z4y1b72D"
+  source: "B站"
 ---
 
 ## 人话解释
@@ -20,6 +24,21 @@ contributor: "股典"
 当快的人从前面掉到慢的人后面 → **死叉** → 常被解读为可能转弱  
 
 **MACD 柱**的高低 = 两人之间的距离，距离越大，趋势动能往往越强。
+
+### 软件里长什么样？
+
+下图是 MACD 副图常见结构（参数多为 **12、26、9**）：
+
+![MACD 指标结构示意：DIF 快线、DEA 慢线、能量柱与 0 轴](/gudian/images/indicators/macd-structure.png)
+
+| 图上名称 | 含义 |
+|----------|------|
+| **快线 DIF** | 12 日 EMA 与 26 日 EMA 的差值，反应更快 |
+| **慢线 DEA** | DIF 的 9 日平滑线，更滞后 |
+| **能量柱** | DIF 与 DEA 的差（软件里常乘 2）；在 **0 轴**上方表示 DIF > DEA，下方表示 DIF < DEA（红绿颜色因软件而异） |
+| **0 轴** | 多空分界参考；DIF、DEA 在 0 轴上方常视为偏强区域 |
+
+部分软件还提供「单线」简化视图，只显示能量柱和 0 轴，本质信息相同。
 
 ## 计算公式（了解即可）
 

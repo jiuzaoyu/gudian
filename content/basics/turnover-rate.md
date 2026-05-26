@@ -2,7 +2,7 @@
 title: "换手率"
 one_liner: "一定时间内股票成交量占流通股本的比例，反映交易活跃程度。"
 tags: ["盘口", "成交量"]
-related: ["volume-ratio", "k-line"]
+related: ["volume-ratio", "k-line", "obv"]
 hot: true
 weight: 2
 last_updated: "2026-05-26"

@@ -7,10 +7,11 @@ hot: false
 weight: 100
 last_updated: "{{ now.Format "2006-01-02" }}"
 contributor: ""
-# --- 视频（二选一，详见 docs/VIDEO.md）---
-# 外链：type: embed, provider: bilibili, id: "BVxxxxxxxx"
-# 自制：type: self, src: "/videos/分类/文件名.mp4"
-# 多个：videos: [ { type: embed, ... }, { type: self, ... } ]
+video:
+  type: embed
+  provider: bilibili
+  id: "BVxxxxxxxx"   # 换成真实 B 站 BV 号；暂无视频可整段删除，见 docs/VIDEO.md
+  source: "B站"
 ---
 
 ## 人话解释

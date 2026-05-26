@@ -2,7 +2,7 @@
 title: "量比"
 one_liner: "当前成交量与过去一段时间平均成交量的比值，衡量放量或缩量程度。"
 tags: ["盘口", "成交量"]
-related: ["turnover-rate"]
+related: ["turnover-rate", "obv"]
 weight: 6
 ---
 

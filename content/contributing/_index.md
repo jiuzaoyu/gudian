@@ -36,6 +36,11 @@ hot: false          # true 则显示在首页热门
 weight: 10          # 数字越小排序越靠前
 last_updated: "2026-05-19"
 contributor: "@你的名字"
+video:
+  type: embed
+  provider: bilibili
+  id: "BVxxxxxxxx"    # 换成真实 B 站 BV 号；暂无合适视频可整段删除
+  source: "B站"
 ---
 
 ## 人话解释
@@ -71,6 +76,7 @@ contributor: "@你的名字"
 - **只讲概念**：不写具体买卖建议、不推荐个股
 - **可验证**：重要说法尽量注明参考来源
 - **保持中立**：风险提示类内容需客观
+- **尽量配视频**：新增概念时在 front matter 加上 B 站外链（与 `rsi.md` 相同写法）；找到合适 BV 号后填入 `id`，暂无视频可先删除 `video` 整段
 
 ### 内容协议
 

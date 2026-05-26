@@ -1,7 +1,7 @@
 ---
 title: "技术指标"
 icon: "📈"
-summary: "MACD、均线、KDJ 等图表上的常用指标"
+summary: "MACD、RSI、OBV、布林带、均线、KDJ 等图表上的常用指标"
 weight: 2
 ---
 
