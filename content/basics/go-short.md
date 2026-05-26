@@ -9,7 +9,7 @@ video:
   type: embed
   provider: bilibili
   id: "BV1HifdBGEzP"
-  source: "B站
+  source: "B站"
 ---
 
 ## 人话解释
