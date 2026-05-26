@@ -5,6 +5,12 @@ tags: ["交易规则", "风险"]
 related: ["t-plus-one", "st-stock"]
 hot: true
 weight: 3
+video:
+  type: embed
+  provider: bilibili
+  id: "BV1w92nYnE8b"
+  title: "涨跌停讲解"
+  source: "B站"
 ---
 
 ## 人话解释

@@ -9,7 +9,7 @@ last_updated: "2026-05-19"
 # 自建视频：录制后放到 static/videos/basics/k-line.mp4
 video:
   type: self
-  src: "/videos/basics/k-line.mp4"
+  src: "/gudian/videos/basics/k-line.mp4"
   poster: "/videos/basics/k-line-poster.jpg"
   title: "股典 · 1 分钟看懂 K 线"
   duration: "1:30"
