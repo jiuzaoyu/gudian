@@ -2,7 +2,7 @@
 <article class="concept-page">
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="{{ .Site.Home.RelPermalink }}">首页</a>
-    {{ with .Parent }}
+    {{ range .Ancestors.Reverse }}
     <span aria-hidden="true">›</span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     {{ end }}

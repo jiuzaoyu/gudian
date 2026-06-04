@@ -2,6 +2,10 @@
 <section class="section-page">
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="{{ .Site.Home.RelPermalink }}">首页</a>
+    {{ range .Ancestors.Reverse }}
+    <span aria-hidden="true">›</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
     <span aria-hidden="true">›</span>
     <span>{{ .Title }}</span>
   </nav>
@@ -18,15 +22,22 @@
   <section class="subsections">
     <h2>子分类</h2>
     <ul class="subsection-list">
-      {{ range . }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }} <span>({{ len .RegularPages }})</span></a></li>
+      {{ range .ByWeight }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span class="subsection-count">({{ len .Pages }} 个概念)</span>
+          {{ with .Params.summary }}<span class="subsection-summary">{{ . }}</span>{{ end }}
+        </a>
+      </li>
       {{ end }}
     </ul>
   </section>
   {{ end }}
 
+  {{ if .RegularPages }}
   <section class="concept-index">
-    <h2>全部概念 <span class="count">({{ len .RegularPages }})</span></h2>
+    <h2>{{ if .Sections }}本分类直接条目{{ else }}全部概念{{ end }} <span class="count">({{ len .RegularPages }})</span></h2>
     <ul class="concept-index-list">
       {{ range .RegularPages.ByTitle }}
       <li>
@@ -38,5 +49,6 @@
       {{ end }}
     </ul>
   </section>
+  {{ end }}
 </section>
 {{ end }}

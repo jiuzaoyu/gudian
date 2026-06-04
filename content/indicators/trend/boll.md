@@ -1,4 +1,5 @@
 ---
+aliases: ["/indicators/boll/"]
 title: "布林带（BOLL）"
 one_liner: "由中轨均线和上下两条标准差轨道组成的通道，用来观察价格波动范围和相对高低位置。"
 tags: ["技术指标", "波动", "趋势"]

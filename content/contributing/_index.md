@@ -5,7 +5,7 @@ type: "docs"
 
 ## 如何新增或修改概念
 
-每个概念对应 **一个 Markdown 文件**，放在 `content/` 下对应分类目录中。
+每个概念对应 **一个 Markdown 文件**，放在 `content/` 下对应分类目录中。技术指标按用途分子目录：`trend/`（趋势）、`momentum/`（动量/震荡）、`volume/`（成交量）。
 
 ### 快速步骤（GitHub 网页）
 

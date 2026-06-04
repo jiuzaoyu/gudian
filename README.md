@@ -54,7 +54,7 @@ hugo --minify
 hugo new basics/你的概念英文名.md
 ```
 
-或直接在 `content/<分类>/` 下新建 `.md` 文件，参考 `content/indicators/macd.md` 格式。
+或直接在 `content/<分类>/` 下新建 `.md` 文件；技术指标请放入 `content/indicators/trend/`、`momentum/` 或 `volume/`，参考 `content/indicators/trend/macd.md` 格式。
 
 详细规范见网站内 [贡献指南](content/contributing/_index.md) 或部署后的 `/contributing/` 页面。
 
@@ -64,7 +64,7 @@ hugo new basics/你的概念英文名.md
 gudian/
 ├── content/           # 所有概念（Markdown）
 │   ├── basics/        # 基础交易
-│   ├── indicators/    # 技术指标
+│   ├── indicators/    # 技术指标（trend / momentum / volume 子目录）
 │   ├── fundamentals/  # 基本面
 │   ├── market-structure/
 │   ├── strategies/

@@ -1,4 +1,5 @@
 ---
+aliases: ["/indicators/obv/"]
 title: "OBV（能量潮）"
 one_liner: "把成交量按涨跌方向累加成的曲线，用来观察「钱是在流入还是在流出」。"
 tags: ["技术指标", "成交量"]

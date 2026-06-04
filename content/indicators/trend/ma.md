@@ -1,4 +1,5 @@
 ---
+aliases: ["/indicators/ma/"]
 title: "均线（MA / 移动平均线）"
 one_liner: "把过去 N 天收盘价取平均后连成的线，用来平滑价格波动、观察趋势方向。"
 tags: ["技术指标", "趋势"]

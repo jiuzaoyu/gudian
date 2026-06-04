@@ -17,7 +17,7 @@
       <span class="category-icon">{{ .Params.icon | default "📚" }}</span>
       <h3>{{ .Title }}</h3>
       <p>{{ .Params.summary | default .Description }}</p>
-      <span class="category-count">{{ len .RegularPages }} 个概念</span>
+      <span class="category-count">{{ len .Pages }} 个概念</span>
     </a>
     {{ end }}
   </div>

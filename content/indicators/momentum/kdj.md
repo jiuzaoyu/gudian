@@ -1,4 +1,5 @@
 ---
+aliases: ["/indicators/kdj/"]
 title: "KDJ（随机指标）"
 one_liner: "由 K、D、J 三条线组成的短线摆动指标，对价格变化较敏感。"
 tags: ["技术指标", "动量"]
